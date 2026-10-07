@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
+<title>My Code Hub</title>
+<style>
+:root{--bg:#0b1120;--panel:#111827;--panel2:#172033;--text:#e5e7eb;--muted:#94a3b8;--accent:#60a5fa;--border:#263244;--code:#090d15}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text)}
+header{padding:22px 18px 16px;position:sticky;top:0;background:rgba(11,17,32,.94);backdrop-filter:blur(10px);z-index:5;border-bottom:1px solid var(--border)}
+.header{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{margin:0;font-size:25px}.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.actions{display:flex;gap:8px}.btn,select,input{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:9px;padding:10px 12px}.btn{cursor:pointer}.btn:hover{border-color:var(--accent)}
+main{max-width:1100px;margin:auto;padding:18px}.toolbar{display:grid;grid-template-columns:1fr 190px;gap:10px;margin-bottom:15px}
+input{width:100%;outline:none}.chips{display:flex;gap:8px;overflow:auto;padding-bottom:10px}.chip{white-space:nowrap;border:1px solid var(--border);background:var(--panel);color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer}.chip.active{background:var(--accent);color:#08111f;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden}.cardhead{padding:14px 15px;display:flex;justify-content:space-between;gap:10px}.title{font-weight:700}.meta{color:var(--muted);font-size:12px;margin-top:4px}.star{background:none;border:0;color:#64748b;font-size:20px;cursor:pointer}.star.on{color:#facc15}
+pre{margin:0;padding:14px;background:var(--code);overflow:auto;font-size:13px;line-height:1.55;min-height:130px}.cardfoot{padding:10px;display:flex;justify-content:flex-end;gap:7px}.empty{text-align:center;color:var(--muted);padding:50px 10px}
+dialog{border:1px solid var(--border);border-radius:15px;background:var(--panel);color:var(--text);width:min(620px,94vw);padding:0}dialog::backdrop{background:#0009}.modal{padding:20px}.modal h2{margin-top:0}.form{display:grid;gap:10px}.form textarea{min-height:230px;resize:vertical;background:var(--code);color:var(--text);border:1px solid var(--border);border-radius:9px;padding:12px;font-family:monospace}.form select{width:100%}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#e5e7eb;color:#111827;padding:10px 16px;border-radius:999px;display:none;z-index:20}
+@media(max-width:650px){.toolbar{grid-template-columns:1fr}.grid{grid-template-columns:1fr}header{position:relative}.actions{width:100%}.actions .btn{flex:1}}
+</style>
+</head>
+<body>
+<header><div class="header">
+<div><h1>💻 My Code Hub</h1><div class="sub">Your personal programming code library</div></div>
+<div class="actions"><button class="btn" onclick="openAdd()">＋ Add Code</button><button class="btn" onclick="exportData()">Export</button><button class="btn" onclick="document.getElementById('file').click()">Import</button><input id="file" type="file" accept=".json" hidden onchange="importData(event)"></div>
+</div></header>
+<main>
+<div class="toolbar"><input id="search" placeholder="🔍 Search code, title, language or tags..." oninput="render()"><select id="sort" onchange="render()"><option value="recent">Recently added</option><option value="az">A → Z</option><option value="fav">Favorites first</option></select></div>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div><div class="empty" id="empty" hidden>No code found.</div>
+</main>
+
+<dialog id="dlg"><div class="modal">
+<h2 id="modalTitle">Add Code</h2>
+<div class="form">
+<input id="title" placeholder="Code title">
+<select id="language"><option>Python</option><option>C</option><option>C++</option><option>Java</option><option>JavaScript</option><option>HTML/CSS</option><option>SQL</option><option>Arduino</option><option>ESP8266/ESP32</option><option>Raspberry Pi Pico</option><option>AI/ML</option><option>Other</option></select>
+<input id="tags" placeholder="Tags (comma separated)">
+<textarea id="code" placeholder="Paste your code here..."></textarea>
+</div><div class="modal-actions"><button class="btn" onclick="dlg.close()">Cancel</button><button class="btn" onclick="saveCode()">Save Code</button></div>
+</div></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+const starter=[
+{id:1,title:"Read a file",language:"Python",tags:"file,read",code:`with open("file.txt", "r") as f:
+    data = f.read()
+print(data)`,fav:false,created:1},
+{id:2,title:"For loop",language:"Python",tags:"loop,basics",code:`for i in range(10):
+    print(i)`,fav:false,created:2},
+{id:3,title:"Input from user",language:"Python",tags:"input,basics",code:`name = input("Enter your name: ")
+print("Hello", name)`,fav:false,created:3},
+{id:4,title:"Arduino Serial Monitor",language:"Arduino",tags:"arduino,serial",code:`void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println("Hello");
+  delay(1000);
+}`,fav:false,created:4},
+{id:5,title:"SQL Select",language:"SQL",tags:"database,select",code:`SELECT *
+FROM students
+WHERE marks > 50
+ORDER BY marks DESC;`,fav:false,created:5},
+{id:6,title:"JavaScript button",language:"JavaScript",tags:"web,dom",code:`document.querySelector("button")
+  .addEventListener("click", () => {
+    alert("Hello!");
+  });`,fav:false,created:6}
+];
+let codes=JSON.parse(localStorage.getItem("myCodeHub")||"null")||starter;
+let active="All", editing=null;
+
+function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function save(){localStorage.setItem("myCodeHub",JSON.stringify(codes))}
+function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";setTimeout(()=>t.style.display="none",1300)}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase(),sort=document.getElementById("sort").value;
+ let list=codes.filter(x=>(active==="All"||x.language===active)&&(x.title+" "+x.language+" "+x.tags+" "+x.code).toLowerCase().includes(q));
+ if(sort==="az")list.sort((a,b)=>a.title.localeCompare(b.title));
+ if(sort==="fav")list.sort((a,b)=>Number(b.fav)-Number(a.fav));
+ if(sort==="recent")list.sort((a,b)=>b.created-a.created);
+ document.getElementById("grid").innerHTML=list.map(x=>`<article class="card">
+ <div class="cardhead"><div><div class="title">${esc(x.title)}</div><div class="meta">${esc(x.language)} · ${esc(x.tags||"no tags")}</div></div>
+ <button class="star ${x.fav?"on":""}" onclick="toggleFav(${x.id})">★</button></div>
+ <pre><code>${esc(x.code)}</code></pre>
+ <div class="cardfoot"><button class="btn" onclick="copyCode(${x.id})">📋 Copy</button><button class="btn" onclick="editCode(${x.id})">✏️ Edit</button><button class="btn" onclick="deleteCode(${x.id})">🗑️</button></div>
+ </article>`).join("");
+ document.getElementById("empty").hidden=list.length>0;
+}
+function renderChips(){
+ let langs=["All",...new Set(codes.map(x=>x.language))];
+ document.getElementById("chips").innerHTML=langs.map(x=>`<button class="chip ${active===x?"active":""}" onclick="active=${JSON.stringify(x)};renderChips();render()">${esc(x)}</button>`).join("");
+}
+function copyCode(id){let x=codes.find(a=>a.id===id);navigator.clipboard.writeText(x.code);toast("Code copied!")}
+function toggleFav(id){let x=codes.find(a=>a.id===id);x.fav=!x.fav;save();render()}
+function deleteCode(id){if(confirm("Delete this code?")){codes=codes.filter(x=>x.id!==id);save();renderChips();render();toast("Deleted")}}
+function openAdd(){editing=null;document.getElementById("modalTitle").textContent="Add Code";title.value="";tags.value="";code.value="";language.value="Python";dlg.showModal()}
+function editCode(id){let x=codes.find(a=>a.id===id);editing=id;document.getElementById("modalTitle").textContent="Edit Code";title.value=x.title;tags.value=x.tags;code.value=x.code;language.value=x.language;dlg.showModal()}
+function saveCode(){
+ if(!title.value.trim()||!code.value.trim()){toast("Add a title and code");return}
+ if(editing){let x=codes.find(a=>a.id===editing);Object.assign(x,{title:title.value.trim(),language:language.value,tags:tags.value.trim(),code:code.value})}
+ else codes.push({id:Date.now(),title:title.value.trim(),language:language.value,tags:tags.value.trim(),code:code.value,fav:false,created:Date.now()});
+ save();dlg.close();renderChips();render();toast("Saved!")
+}
+function exportData(){let blob=new Blob([JSON.stringify(codes,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my-code-hub-backup.json";a.click()}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{codes=JSON.parse(r.result);save();renderChips();render();toast("Imported")}catch{toast("Invalid JSON file")}};r.readAsText(f)}
+renderChips();render();
+</script>
+</body>
+</html>

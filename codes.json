@@ -1,0 +1,573 @@
+{
+  "name": "My Code Hub",
+  "description": "A personal searchable programming code library.",
+  "codes": [
+    {
+      "id": 1,
+      "title": "Hello World",
+      "language": "Python",
+      "tags": "basics,print",
+      "code": "print(\"Hello, World!\")",
+      "fav": false,
+      "created": 1
+    },
+    {
+      "id": 2,
+      "title": "User Input",
+      "language": "Python",
+      "tags": "basics,input",
+      "code": "name = input(\"Enter your name: \")\nprint(\"Hello\", name)",
+      "fav": false,
+      "created": 2
+    },
+    {
+      "id": 3,
+      "title": "If Else",
+      "language": "Python",
+      "tags": "basics,conditions",
+      "code": "n = int(input(\"Enter a number: \"))\nif n > 0:\n    print(\"Positive\")\nelif n < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+      "fav": false,
+      "created": 3
+    },
+    {
+      "id": 4,
+      "title": "For Loop",
+      "language": "Python",
+      "tags": "loop,for",
+      "code": "for i in range(1, 11):\n    print(i)",
+      "fav": false,
+      "created": 4
+    },
+    {
+      "id": 5,
+      "title": "While Loop",
+      "language": "Python",
+      "tags": "loop,while",
+      "code": "i = 1\nwhile i <= 10:\n    print(i)\n    i += 1",
+      "fav": false,
+      "created": 5
+    },
+    {
+      "id": 6,
+      "title": "List Operations",
+      "language": "Python",
+      "tags": "list,collections",
+      "code": "numbers = [10, 20, 30]\nnumbers.append(40)\nnumbers.remove(20)\nprint(numbers)\nprint(len(numbers))",
+      "fav": false,
+      "created": 6
+    },
+    {
+      "id": 7,
+      "title": "Dictionary",
+      "language": "Python",
+      "tags": "dictionary,collections",
+      "code": "student = {\"name\": \"Rihan\", \"mark\": 85}\nprint(student[\"name\"])\nstudent[\"mark\"] = 90",
+      "fav": false,
+      "created": 7
+    },
+    {
+      "id": 8,
+      "title": "Function",
+      "language": "Python",
+      "tags": "function,basics",
+      "code": "def add(a, b):\n    return a + b\n\nprint(add(10, 20))",
+      "fav": false,
+      "created": 8
+    },
+    {
+      "id": 9,
+      "title": "File Read",
+      "language": "Python",
+      "tags": "file,read",
+      "code": "with open(\"file.txt\", \"r\") as f:\n    data = f.read()\nprint(data)",
+      "fav": false,
+      "created": 9
+    },
+    {
+      "id": 10,
+      "title": "File Write",
+      "language": "Python",
+      "tags": "file,write",
+      "code": "with open(\"file.txt\", \"w\") as f:\n    f.write(\"Hello from Python\")",
+      "fav": false,
+      "created": 10
+    },
+    {
+      "id": 11,
+      "title": "Exception Handling",
+      "language": "Python",
+      "tags": "try,except,error",
+      "code": "try:\n    a = int(input(\"Enter a number: \"))\n    print(10 / a)\nexcept ValueError:\n    print(\"Invalid number\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")",
+      "fav": false,
+      "created": 11
+    },
+    {
+      "id": 12,
+      "title": "Count Vowels",
+      "language": "Python",
+      "tags": "string,loop",
+      "code": "text = input(\"Enter text: \")\ncount = sum(1 for c in text.lower() if c in \"aeiou\")\nprint(count)",
+      "fav": false,
+      "created": 12
+    },
+    {
+      "id": 13,
+      "title": "Palindrome Check",
+      "language": "Python",
+      "tags": "string,palindrome",
+      "code": "text = input(\"Enter text: \").lower().replace(\" \", \"\")\nprint(\"Palindrome\" if text == text[::-1] else \"Not palindrome\")",
+      "fav": false,
+      "created": 13
+    },
+    {
+      "id": 14,
+      "title": "Prime Number Check",
+      "language": "Python",
+      "tags": "prime,math",
+      "code": "n = int(input(\"Enter number: \"))\nif n < 2:\n    print(\"Not prime\")\nelse:\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            print(\"Not prime\")\n            break\n    else:\n        print(\"Prime\")",
+      "fav": false,
+      "created": 14
+    },
+    {
+      "id": 15,
+      "title": "Fibonacci",
+      "language": "Python",
+      "tags": "fibonacci,loop",
+      "code": "n = int(input(\"How many terms? \"))\na, b = 0, 1\nfor _ in range(n):\n    print(a, end=\" \")\n    a, b = b, a + b",
+      "fav": false,
+      "created": 15
+    },
+    {
+      "id": 16,
+      "title": "Factorial",
+      "language": "Python",
+      "tags": "factorial,math",
+      "code": "import math\nn = int(input(\"Enter number: \"))\nprint(math.factorial(n))",
+      "fav": false,
+      "created": 16
+    },
+    {
+      "id": 17,
+      "title": "Sort List",
+      "language": "Python",
+      "tags": "list,sort",
+      "code": "numbers = [5, 2, 9, 1, 7]\nnumbers.sort()\nprint(numbers)\n\n# Descending\nnumbers.sort(reverse=True)\nprint(numbers)",
+      "fav": false,
+      "created": 17
+    },
+    {
+      "id": 18,
+      "title": "Remove Duplicates",
+      "language": "Python",
+      "tags": "list,set,duplicates",
+      "code": "numbers = [1, 2, 2, 3, 3, 4]\nunique = list(set(numbers))\nprint(unique)",
+      "fav": false,
+      "created": 18
+    },
+    {
+      "id": 19,
+      "title": "JSON Read",
+      "language": "Python",
+      "tags": "json,file,data",
+      "code": "import json\n\nwith open(\"data.json\", \"r\") as f:\n    data = json.load(f)\n\nprint(data)",
+      "fav": false,
+      "created": 19
+    },
+    {
+      "id": 20,
+      "title": "Pandas CSV Read",
+      "language": "Python",
+      "tags": "pandas,csv,data",
+      "code": "import pandas as pd\n\ndf = pd.read_csv(\"data.csv\")\nprint(df.head())\nprint(df.info())",
+      "fav": false,
+      "created": 20
+    },
+    {
+      "id": 21,
+      "title": "NumPy Array",
+      "language": "Python",
+      "tags": "numpy,array,ml",
+      "code": "import numpy as np\n\narr = np.array([1, 2, 3, 4, 5])\nprint(arr)\nprint(arr.mean())",
+      "fav": false,
+      "created": 21
+    },
+    {
+      "id": 22,
+      "title": "Train Test Split",
+      "language": "Python",
+      "tags": "machine-learning,sklearn",
+      "code": "from sklearn.model_selection import train_test_split\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)",
+      "fav": false,
+      "created": 22
+    },
+    {
+      "id": 23,
+      "title": "Linear Regression",
+      "language": "Python",
+      "tags": "machine-learning,regression,sklearn",
+      "code": "from sklearn.linear_model import LinearRegression\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\nprint(predictions)",
+      "fav": false,
+      "created": 23
+    },
+    {
+      "id": 24,
+      "title": "C Hello World",
+      "language": "C",
+      "tags": "basics,print",
+      "code": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "fav": false,
+      "created": 24
+    },
+    {
+      "id": 25,
+      "title": "C User Input",
+      "language": "C",
+      "tags": "input,scanf",
+      "code": "#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    printf(\"You entered: %d\\n\", n);\n    return 0;\n}",
+      "fav": false,
+      "created": 25
+    },
+    {
+      "id": 26,
+      "title": "C Array",
+      "language": "C",
+      "tags": "array,loop",
+      "code": "#include <stdio.h>\n\nint main() {\n    int a[] = {10, 20, 30, 40};\n    int n = sizeof(a) / sizeof(a[0]);\n    for (int i = 0; i < n; i++)\n        printf(\"%d \", a[i]);\n    return 0;\n}",
+      "fav": false,
+      "created": 26
+    },
+    {
+      "id": 27,
+      "title": "C Function",
+      "language": "C",
+      "tags": "function,basics",
+      "code": "#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    printf(\"%d\", add(5, 3));\n    return 0;\n}",
+      "fav": false,
+      "created": 27
+    },
+    {
+      "id": 28,
+      "title": "C++ Hello World",
+      "language": "C++",
+      "tags": "basics,cout",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, World!\";\n    return 0;\n}",
+      "fav": false,
+      "created": 28
+    },
+    {
+      "id": 29,
+      "title": "C++ Vector",
+      "language": "C++",
+      "tags": "vector,stl,array",
+      "code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> v = {1, 2, 3};\n    v.push_back(4);\n    for (int x : v) cout << x << \" \";\n}",
+      "fav": false,
+      "created": 29
+    },
+    {
+      "id": 30,
+      "title": "C++ Sort",
+      "language": "C++",
+      "tags": "sort,stl",
+      "code": "#include <algorithm>\n#include <vector>\nusing namespace std;\n\nsort(v.begin(), v.end());",
+      "fav": false,
+      "created": 30
+    },
+    {
+      "id": 31,
+      "title": "C++ Binary Search",
+      "language": "C++",
+      "tags": "binary-search,algorithm",
+      "code": "#include <algorithm>\n\nif (binary_search(v.begin(), v.end(), target))\n    cout << \"Found\";\nelse\n    cout << \"Not found\";",
+      "fav": false,
+      "created": 31
+    },
+    {
+      "id": 32,
+      "title": "Java Hello World",
+      "language": "Java",
+      "tags": "basics,print",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+      "fav": false,
+      "created": 32
+    },
+    {
+      "id": 33,
+      "title": "Java User Input",
+      "language": "Java",
+      "tags": "input,scanner",
+      "code": "import java.util.Scanner;\n\nScanner sc = new Scanner(System.in);\nint n = sc.nextInt();\nSystem.out.println(n);",
+      "fav": false,
+      "created": 33
+    },
+    {
+      "id": 34,
+      "title": "Java ArrayList",
+      "language": "Java",
+      "tags": "arraylist,collections",
+      "code": "import java.util.ArrayList;\n\nArrayList<Integer> list = new ArrayList<>();\nlist.add(10);\nlist.add(20);\nfor (int x : list) System.out.println(x);",
+      "fav": false,
+      "created": 34
+    },
+    {
+      "id": 35,
+      "title": "HTML Basic Page",
+      "language": "HTML/CSS",
+      "tags": "html,web",
+      "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Page</title>\n</head>\n<body>\n  <h1>Hello World</h1>\n  <p>My first page.</p>\n</body>\n</html>",
+      "fav": false,
+      "created": 35
+    },
+    {
+      "id": 36,
+      "title": "CSS Center Element",
+      "language": "HTML/CSS",
+      "tags": "css,flexbox,web",
+      "code": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n}",
+      "fav": false,
+      "created": 36
+    },
+    {
+      "id": 37,
+      "title": "JavaScript Function",
+      "language": "JavaScript",
+      "tags": "function,web",
+      "code": "function add(a, b) {\n  return a + b;\n}\n\nconsole.log(add(10, 20));",
+      "fav": false,
+      "created": 37
+    },
+    {
+      "id": 38,
+      "title": "JavaScript DOM Button",
+      "language": "JavaScript",
+      "tags": "dom,button,web",
+      "code": "document.querySelector(\"button\").addEventListener(\"click\", () => {\n  alert(\"Button clicked!\");\n});",
+      "fav": false,
+      "created": 38
+    },
+    {
+      "id": 39,
+      "title": "JavaScript Fetch API",
+      "language": "JavaScript",
+      "tags": "fetch,api,json",
+      "code": "fetch(\"https://api.example.com/data\")\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));",
+      "fav": false,
+      "created": 39
+    },
+    {
+      "id": 40,
+      "title": "SQL Create Table",
+      "language": "SQL",
+      "tags": "sql,table,database",
+      "code": "CREATE TABLE students (\n  id INT PRIMARY KEY,\n  name VARCHAR(100),\n  marks INT\n);",
+      "fav": false,
+      "created": 40
+    },
+    {
+      "id": 41,
+      "title": "SQL Insert",
+      "language": "SQL",
+      "tags": "sql,insert,database",
+      "code": "INSERT INTO students (id, name, marks)\nVALUES (1, 'Rihan', 85);",
+      "fav": false,
+      "created": 41
+    },
+    {
+      "id": 42,
+      "title": "SQL Select",
+      "language": "SQL",
+      "tags": "sql,select,database",
+      "code": "SELECT *\nFROM students\nWHERE marks > 50\nORDER BY marks DESC;",
+      "fav": false,
+      "created": 42
+    },
+    {
+      "id": 43,
+      "title": "SQL Join",
+      "language": "SQL",
+      "tags": "sql,join,database",
+      "code": "SELECT s.name, c.course_name\nFROM students s\nJOIN courses c ON s.course_id = c.id;",
+      "fav": false,
+      "created": 43
+    },
+    {
+      "id": 44,
+      "title": "SQL Group By",
+      "language": "SQL",
+      "tags": "sql,aggregate,group",
+      "code": "SELECT department, COUNT(*) AS total\nFROM students\nGROUP BY department;",
+      "fav": false,
+      "created": 44
+    },
+    {
+      "id": 45,
+      "title": "Arduino Serial Monitor",
+      "language": "Arduino",
+      "tags": "arduino,serial",
+      "code": "void setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  Serial.println(\"Hello\");\n  delay(1000);\n}",
+      "fav": false,
+      "created": 45
+    },
+    {
+      "id": 46,
+      "title": "Arduino LED Blink",
+      "language": "Arduino",
+      "tags": "arduino,led,gpio",
+      "code": "const int LED = 13;\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED, HIGH);\n  delay(1000);\n  digitalWrite(LED, LOW);\n  delay(1000);\n}",
+      "fav": false,
+      "created": 46
+    },
+    {
+      "id": 47,
+      "title": "Arduino LDR",
+      "language": "Arduino",
+      "tags": "arduino,ldr,sensor",
+      "code": "int ldr = A0;\n\nvoid setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int value = analogRead(ldr);\n  Serial.println(value);\n  delay(500);\n}",
+      "fav": false,
+      "created": 47
+    },
+    {
+      "id": 48,
+      "title": "Arduino HC-SR04",
+      "language": "Arduino",
+      "tags": "arduino,ultrasonic,hcsr04",
+      "code": "const int trigPin = 9;\nconst int echoPin = 10;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(trigPin, OUTPUT);\n  pinMode(echoPin, INPUT);\n}\n\nvoid loop() {\n  digitalWrite(trigPin, LOW);\n  delayMicroseconds(2);\n  digitalWrite(trigPin, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(trigPin, LOW);\n\n  long duration = pulseIn(echoPin, HIGH);\n  float distance = duration * 0.034 / 2;\n  Serial.println(distance);\n  delay(500);\n}",
+      "fav": false,
+      "created": 48
+    },
+    {
+      "id": 49,
+      "title": "Arduino LM35 Temperature",
+      "language": "Arduino",
+      "tags": "arduino,lm35,temperature",
+      "code": "int sensorPin = A0;\n\nvoid setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int value = analogRead(sensorPin);\n  float voltage = value * (5.0 / 1023.0);\n  float temperature = voltage * 100.0;\n  Serial.println(temperature);\n  delay(1000);\n}",
+      "fav": false,
+      "created": 49
+    },
+    {
+      "id": 50,
+      "title": "ESP8266 WiFi Connect",
+      "language": "ESP8266/ESP32",
+      "tags": "esp8266,wifi",
+      "code": "#include <ESP8266WiFi.h>\n\nconst char* ssid = \"YOUR_WIFI\";\nconst char* password = \"YOUR_PASSWORD\";\n\nvoid setup() {\n  Serial.begin(115200);\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) delay(500);\n  Serial.println(WiFi.localIP());\n}\n\nvoid loop() {}",
+      "fav": false,
+      "created": 50
+    },
+    {
+      "id": 51,
+      "title": "ESP8266 LM35",
+      "language": "ESP8266/ESP32",
+      "tags": "esp8266,lm35,sensor",
+      "code": "const int sensorPin = A0;\n\nvoid setup() {\n  Serial.begin(115200);\n}\n\nvoid loop() {\n  int value = analogRead(sensorPin);\n  Serial.println(value);\n  delay(1000);\n}",
+      "fav": false,
+      "created": 51
+    },
+    {
+      "id": 52,
+      "title": "ESP32 LED",
+      "language": "ESP8266/ESP32",
+      "tags": "esp32,led,gpio",
+      "code": "const int LED = 2;\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED, HIGH);\n  delay(500);\n  digitalWrite(LED, LOW);\n  delay(500);\n}",
+      "fav": false,
+      "created": 52
+    },
+    {
+      "id": 53,
+      "title": "Pico W LED Blink",
+      "language": "Raspberry Pi Pico",
+      "tags": "pico,micropython,led",
+      "code": "from machine import Pin\nfrom time import sleep\n\nled = Pin(\"LED\", Pin.OUT)\n\nwhile True:\n    led.toggle()\n    sleep(1)",
+      "fav": false,
+      "created": 53
+    },
+    {
+      "id": 54,
+      "title": "Pico W LM35 ADC",
+      "language": "Raspberry Pi Pico",
+      "tags": "pico,lm35,micropython,adc",
+      "code": "from machine import ADC\nfrom time import sleep\n\nsensor = ADC(26)\n\nwhile True:\n    value = sensor.read_u16()\n    voltage = value * 3.3 / 65535\n    temperature = voltage * 100\n    print(temperature)\n    sleep(1)",
+      "fav": false,
+      "created": 54
+    },
+    {
+      "id": 55,
+      "title": "Pico W WiFi",
+      "language": "Raspberry Pi Pico",
+      "tags": "pico,wifi,micropython",
+      "code": "import network\nimport time\n\nssid = \"YOUR_WIFI\"\npassword = \"YOUR_PASSWORD\"\n\nwlan = network.WLAN(network.STA_IF)\nwlan.active(True)\nwlan.connect(ssid, password)\n\nwhile not wlan.isconnected():\n    time.sleep(1)\n\nprint(wlan.ifconfig())",
+      "fav": false,
+      "created": 55
+    },
+    {
+      "id": 56,
+      "title": "Pico W ThingSpeak POST",
+      "language": "Raspberry Pi Pico",
+      "tags": "pico,thingspeak,http,micropython",
+      "code": "import urequests\n\nurl = \"https://api.thingspeak.com/update\"\nparams = \"?api_key=YOUR_API_KEY&field1=25.5\"\nresponse = urequests.get(url + params)\nprint(response.text)\nresponse.close()",
+      "fav": false,
+      "created": 56
+    },
+    {
+      "id": 57,
+      "title": "Python TCP Server",
+      "language": "Python",
+      "tags": "networking,socket,server",
+      "code": "import socket\n\nserver = socket.socket()\nserver.bind((\"0.0.0.0\", 5000))\nserver.listen(1)\n\nconn, addr = server.accept()\nprint(\"Connected:\", addr)\nconn.sendall(b\"Hello client\")\nconn.close()\nserver.close()",
+      "fav": false,
+      "created": 57
+    },
+    {
+      "id": 58,
+      "title": "Python HTTP GET",
+      "language": "Python",
+      "tags": "http,api,requests",
+      "code": "import requests\n\nresponse = requests.get(\"https://api.example.com/data\")\nprint(response.status_code)\nprint(response.json())",
+      "fav": false,
+      "created": 58
+    },
+    {
+      "id": 59,
+      "title": "Python Hash SHA256",
+      "language": "Python",
+      "tags": "security,hash,sha256",
+      "code": "import hashlib\n\ntext = \"hello\"\nhash_value = hashlib.sha256(text.encode()).hexdigest()\nprint(hash_value)",
+      "fav": false,
+      "created": 59
+    },
+    {
+      "id": 60,
+      "title": "Git Basic Commands",
+      "language": "Other",
+      "tags": "git,version-control",
+      "code": "git init\ngit add .\ngit commit -m \"Initial commit\"\ngit branch -M main\ngit remote add origin <REPOSITORY_URL>\ngit push -u origin main",
+      "fav": false,
+      "created": 60
+    },
+    {
+      "id": 61,
+      "title": "Merge Sort",
+      "language": "C++",
+      "tags": "dsa,sorting,merge-sort",
+      "code": "void mergeSort(vector<int>& a, int l, int r) {\n    if (l >= r) return;\n    int m = l + (r - l) / 2;\n    mergeSort(a, l, m);\n    mergeSort(a, m + 1, r);\n    inplace_merge(a.begin() + l, a.begin() + m + 1, a.begin() + r + 1);\n}",
+      "fav": false,
+      "created": 61
+    },
+    {
+      "id": 62,
+      "title": "BFS Graph",
+      "language": "C++",
+      "tags": "dsa,bfs,graph",
+      "code": "queue<int> q;\nvector<bool> visited(n, false);\n\nq.push(start);\nvisited[start] = true;\n\nwhile (!q.empty()) {\n    int u = q.front();\n    q.pop();\n    cout << u << \" \";\n    for (int v : graph[u]) {\n        if (!visited[v]) {\n            visited[v] = true;\n            q.push(v);\n        }\n    }\n}",
+      "fav": false,
+      "created": 62
+    },
+    {
+      "id": 63,
+      "title": "DFS Graph",
+      "language": "C++",
+      "tags": "dsa,dfs,graph",
+      "code": "void dfs(int u, vector<vector<int>>& graph, vector<bool>& visited) {\n    visited[u] = true;\n    cout << u << \" \";\n    for (int v : graph[u])\n        if (!visited[v]) dfs(v, graph, visited);\n}",
+      "fav": false,
+      "created": 63
+    }
+  ]
+}
